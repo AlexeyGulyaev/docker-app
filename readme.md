@@ -18,3 +18,12 @@ docker-compose up -d
 ```
 docker-compose down
 ```
+>Запускаем клинет по адресу localhost:82, который запрашивает json c сервера,
+> и изменяет в нем значение "user agent": .... и "machine": "server" на "machine": "client"
+>, если сервер не доступен - выводит json вида
+```
+{
+    "string": "server not available now",
+    "machine": "client"
+}
+```
