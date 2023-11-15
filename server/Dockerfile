@@ -1,7 +1,10 @@
 FROM pndf/my-py:latest
 LABEL author='I'
-COPY server.py /server/server.py
-COPY wsgi.py /server/wsgi.py
+COPY . /server/
+
 WORKDIR /server
+
+RUN pip install -r requirements.txt --break-system-packages
+
 EXPOSE 8080
-ENTRYPOINT ["uwsgi", "--socket", "0.0.0.0:8080", "--protocol=http", "-w", "wsgi:app"]
+ENTRYPOINT ["flask", "run", "--host=0.0.0.0", "--port=8080"]

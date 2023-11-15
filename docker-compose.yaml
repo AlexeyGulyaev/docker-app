@@ -1,18 +1,18 @@
 version: "3.8"
 services:
-  serv1:
-    image: pndf/server:latest
+  server:
+    image: alex_server
     networks:
       - net7
     ports:
     - target: 8080
-      published: 81
-  cl1:
-    image: pndf/client:latest
+      published: 8082
+  client:
+    image: alex_client
     networks:
       - net7
     ports:
     - target: 8080
-      published: 82
+      published: 8081
 networks:
   net7:

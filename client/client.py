@@ -8,7 +8,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 @app.route('/')
 def index():
     try:
-        data = requests.get('http://docker-app_serv1_1:8080/info').json()
+        data = requests.get('http://docker-app123_server_1:8080/info').json()
+        # data = requests.get('http://127.0.0.1:5000/info').json()
     except requests.exceptions.ConnectionError:
         data = {'string': 'server not available now'}
     data['machine'] = 'client'
